@@ -4,7 +4,7 @@ import {formValidator, getInitiatedForm} from "../utils/formHandler";
 
 export const SEPARATOR = "-";
 
-
+// todo re-wright the stores with better design
 class Forms {
 
   activeForm;
@@ -19,7 +19,6 @@ class Forms {
     this.submitForm = this.submitForm.bind(this);
     this.isFormValid = this.isFormValid.bind(this);
     this.isValidField = this.isValidField.bind(this);
-
 
     makeAutoObservable(this, {
       activeForm:observable,
@@ -61,6 +60,7 @@ class Forms {
   }
 
   isValidField(question) {
+    // todo add better validations
     const value = question.answer;
     switch (question.type) {
       case "number":
