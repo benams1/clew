@@ -11,9 +11,9 @@ import {SEPARATOR} from "../../../../store/Forms";
 const SelectInput = ({label, options, id, value = "", onChange, error}) => {
 
   return <FormControl className={"select-input"}>
-    <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+    <InputLabel id={`${id}-label`}>{label}</InputLabel>
     <Select
-      labelId={`${id}-label`}
+      labelId={`${id}-select`}
       id={id}
       value={value}
       label={label}

@@ -10,7 +10,7 @@ import {observer} from "mobx-react";
 
 const RadioInput = ({ label, id, onChange, value= "", error }) => {
   return (
-    <FormControl error={error} component="fieldset" id={id}>
+    <FormControl error={error} component="fieldset" id={`${id}-radio`}>
       <FormLabel component="legend">{label}</FormLabel>
       <RadioGroup
         row
@@ -20,8 +20,8 @@ const RadioInput = ({ label, id, onChange, value= "", error }) => {
           onChange(e.target.value)
         }}
       >
-        <FormControlLabel value="1" control={<Radio />} label="Yes" />
-        <FormControlLabel value="0" control={<Radio />} label="No" />
+        <FormControlLabel id={`${id}-true`} value="1" control={<Radio />} label="Yes" />
+        <FormControlLabel id={`${id}-false`} value="0" control={<Radio />} label="No" />
       </RadioGroup>
     </FormControl>
   );
