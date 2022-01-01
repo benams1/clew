@@ -8,9 +8,9 @@ import PropTypes from 'prop-types'
 import {observer} from "mobx-react";
 
 
-const RadioInput = ({ label, id, onChange, value= "" }) => {
+const RadioInput = ({ label, id, onChange, value= "", error }) => {
   return (
-    <FormControl component="fieldset" id={id}>
+    <FormControl error={error} component="fieldset" id={id}>
       <FormLabel component="legend">{label}</FormLabel>
       <RadioGroup
         row
@@ -32,6 +32,7 @@ RadioInput.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  error: PropTypes.bool.isRequired
 }
 
 export default observer(RadioInput)

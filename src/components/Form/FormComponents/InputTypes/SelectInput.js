@@ -8,7 +8,7 @@ import {observer} from "mobx-react";
 import {SEPARATOR} from "../../../../store/Forms";
 
 
-const SelectInput = ({label, options, id, value = "", onChange}) => {
+const SelectInput = ({label, options, id, value = "", onChange, error}) => {
 
   return <FormControl className={"select-input"}>
     <InputLabel id="demo-simple-select-label">{label}</InputLabel>
@@ -18,6 +18,7 @@ const SelectInput = ({label, options, id, value = "", onChange}) => {
       value={value}
       label={label}
       onChange={(e) => onChange(e.target.value)}
+      error={error}
     >
       {options.map((val, index) => (<MenuItem key={`${id}${SEPARATOR}${index}`} value={val}>{val}</MenuItem>))}
     </Select>
@@ -30,6 +31,7 @@ SelectInput.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  error: PropTypes.bool.isRequired
 };
 
 export default observer(SelectInput)
