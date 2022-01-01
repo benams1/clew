@@ -5,9 +5,10 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import PropTypes from 'prop-types'
+import {observer} from "mobx-react";
 
 
-const RadioInput = ({ label, id, onChange, value }) => {
+const RadioInput = ({ label, id, onChange, value= "" }) => {
   return (
     <FormControl component="fieldset" id={id}>
       <FormLabel component="legend">{label}</FormLabel>
@@ -30,7 +31,7 @@ RadioInput.propTypes = {
   label: PropTypes,
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
-  onChange: PropTypes.number.isRequired,
+  onChange: PropTypes.func,
 }
 
-export default RadioInput
+export default observer(RadioInput)

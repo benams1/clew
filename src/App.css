@@ -2,6 +2,20 @@
   text-align: center;
 }
 
+.header {
+  background-color: #3f50b5;
+  padding: 15px 0;
+}
+
+.h-1 {
+  color: #fff;
+}
+
+.select-input {
+  width: 195px;
+  padding: 16px 14px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

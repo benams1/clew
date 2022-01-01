@@ -5,14 +5,14 @@ import CompositeQuestion from "./FormComponents/CompositeQuestion";
 const Form = ({questions}) => {
   return (
     <form>
-      {questions.map((props, index) =>
+      {questions.map(({ type, title, options, childItems, answer }, index) =>
         (<CompositeQuestion
           key={index}
-          type={props.type}
-          title={props.title}
-          options={props.options}
-          childItems={props.childItems}
-          value={props.answer}
+          type={type}
+          title={title}
+          options={options}
+          childItems={childItems}
+          value={answer}
           id={`${index}`}
         />))}
     </form>

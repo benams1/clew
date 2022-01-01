@@ -1,13 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import PropTypes from 'prop-types'
+import {observer} from "mobx-react";
+import {SEPARATOR} from "../../../../store/Forms";
 
 
-const SelectInput = ({label, options, id, value, onChange}) => {
-  // const [value, setValue] = useState('');
+const SelectInput = ({label, options, id, value = "", onChange}) => {
 
   return <FormControl className={"select-input"}>
     <InputLabel id="demo-simple-select-label">{label}</InputLabel>
@@ -18,7 +19,7 @@ const SelectInput = ({label, options, id, value, onChange}) => {
       label={label}
       onChange={(e) => onChange(e.target.value)}
     >
-      {options.map(val => (<MenuItem value={val}>{val}</MenuItem>))}
+      {options.map((val, index) => (<MenuItem key={`${id}${SEPARATOR}${index}`} value={val}>{val}</MenuItem>))}
     </Select>
   </FormControl>
 }
@@ -28,7 +29,7 @@ SelectInput.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
-  onChange: PropTypes.number.isRequired,
+  onChange: PropTypes.func,
 };
 
-export default SelectInput
+export default observer(SelectInput)

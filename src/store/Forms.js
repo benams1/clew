@@ -1,4 +1,3 @@
-import React from "react"
 import {action, makeAutoObservable, observable} from "mobx"
 import cloneDeep from "lodash/cloneDeep"
 import questions from "../Questiones.json"
@@ -13,17 +12,16 @@ class Forms {
   updates;
 
   constructor() {
+    this.activeForm = cloneDeep(questions.patientQuestions);
+    this.completedForms = [];
+    this.updates = 0;
+    this.updateField = this.updateField.bind(this)
     makeAutoObservable(this, {
       activeForm:observable,
       updates:observable,
       completedForms: observable,
       updateField: action
-
-    })
-      this.activeForm = cloneDeep(questions.patientQuestions);
-    this.completedForms = [];
-    this.updates = 0;
-    this.updateField = this.updateField.bind(this)
+    }, {autoBind: true})
   }
 
   updateField(key, value){
@@ -38,7 +36,6 @@ class Forms {
       }
     })
     if (child) child.answer = value
-    console.log("___child", child) // todo replace with assignment and test change in this.activeForm
     ++this.updates
   }
 }

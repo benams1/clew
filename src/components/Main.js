@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Form from "./Form";
 import Typography from "@mui/material/Typography";
 import useStore from "../store/useStore";
@@ -13,13 +13,13 @@ const Main = () => {
           Clew Assignment Form
         </Typography>
       </header>
-      <body>
-        <Form questions={store.activeForm} />
-      </body>
+      <main>
+        <Form questions={store.activeForm} number={store.updates} />
+      </main>
     </div>)
 }
 
 
 Main.propTypes = {}
 
-export default Main;
+export default observer(Main);

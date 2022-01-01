@@ -4,6 +4,7 @@ import NumberInput from "./InputTypes/NumberInput";
 import RadioInput from "./InputTypes/RadioInput";
 import SelectInput from "./InputTypes/SelectInput";
 import useStore from "../../../store/useStore";
+import {observer} from "mobx-react";
 
 //more input types option from W3schools
 // https://www.w3schools.com/html/html_form_input_types.asp
@@ -39,4 +40,4 @@ LeafQuestion.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export default LeafQuestion
+export default observer(LeafQuestion)
